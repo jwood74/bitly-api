@@ -6,6 +6,7 @@ require 'json'
 
 require_relative 'commands.rb'
 require_relative 'accessToken.rb'
+require_relative 'country_codes.rb'
 
 url1 = "http://www.bitly.com"
 url2 = "google.com"
@@ -29,4 +30,13 @@ link2 = "bit.ly/apple"
 #	puts cnt.to_s + " clicks since " + fix_date(l["dt"]).to_s
 #end
 
-result = link
+#result = link_countries(link1,'month',2)
+#puts result
+#countries = []
+#countries = result["data"]["countries"]
+#countries.each do |c|
+#	puts c["clicks"].to_s + " clicks in " + c["country"].to_country
+#end
+
+result = link_encoders(link3)
+puts result

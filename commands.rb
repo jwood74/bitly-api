@@ -128,6 +128,14 @@ end
 def link_countries(bitlink,unit,units,timezone = 10, limit = 100)
 	if is_bitlink(bitlink)
 		link = "https://api-ssl.bitly.com/v3/link/countries?access_token=#{$token}&link=#{fix_prefix(bitlink)}&unit=#{unit}&units=#{units}&timezone-#{timezone}&limit=#{limit}"
+		result = open(link).read()
+		return JSON.parse(result)
+	end
+end
+
+def link_encoders(bitlink)
+	if is_bitlink(bitlink)
+		link = "https://api-ssl.bitly.com/v3/link/encoders?access_token=#{$token}&link=#{fix_prefix(bitlink)}"
 		puts link
 		result = open(link).read()
 		return JSON.parse(result)
